@@ -182,82 +182,46 @@ span{
     background-color: var(--main-colour);
     color: black;   
 }
-.text-animation{
+.text-animation {
     font-size: 34px;
     font-weight: 600;
     min-width: 280px;
-}
-.text-animation span{
-    position: relative;
-}
-.text-animation span::before{
-    content: "Web Devloper";
     color: var(--main-colour);
-    animation: words 20s infinite;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
 }
-.text-animation span::after{
-    content:"";
-    background-color: var(--bg-colour);
-    position: absolute;
-    width: calc(100% + 8px);
-    height: 100%;
-    border-left: 3px solid var(--bg-colour);
-    right: -8px;
-    animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
-}
-@keyframes cursor{
-    to{
-        border-left: 2px solid var(--main-colour);
-    }
-}
-@keyframes words{
-    0%,
-    20%{
-        content: "Frontend Desighner";
-    }
-    21%,
-    40%{
-        content: "Web Devloper";
-    }
-    41%,
-    60%{
-        content: "Coming Soon";
-    }
-    61%,
-    80%{
-        content: "To be Found";
-    }
-    81%,
-    100%{
-        content: "To be found";
-    }
 
+.text-animation span {
+    position: relative;
+    display: inline-block;
+    animation: words 20s steps(1, end) infinite;
 }
-@keyframes typing{
-    10%,
-    15%,
-    30%,
-    35%,
-    50%,
-    55%,
-    70%,
-    75%,
-    90%,
-    95%{
-        width: 0;
-    }
-    5%,
-    20%,
-    25%,
-    40%,
-    45%,
-    60%,
-    65%,
-    80%,
-    85%{
-        width: calc(100% + 8px);
-    }
+
+.text-animation span::after {
+    content: "";
+    position: absolute;
+    background-color: var(--bg-colour);
+    height: 100%;
+    width: 3px;
+    right: 0;
+    animation: cursor 0.6s steps(1) infinite;
 }
+
+/* Keyframes for cursor blink effect */
+@keyframes cursor {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Keyframes for word change */
+@keyframes words {
+    0%, 20%   { content: "Frontend Designer"; }
+    21%, 40%  { content: "Web Developer"; }
+    41%, 60%  { content: "Coming Soon"; }
+    61%, 100% { content: "To be Found"; }
+}
+
 .heading{
     font-size: 8rem;
     text-align: center;
