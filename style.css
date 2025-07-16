@@ -392,10 +392,12 @@ span {
     flex-direction: column;
     text-align: left;
     max-height: 200px;
+    overflow-y: auto; /* 👈 This enables scrolling if content exceeds height */
     justify-content: left;
     align-items: baseline;
     padding: 5rem 5rem;
 }
+
 
 .skill-info h4 {
     font-size: 3rem;
@@ -664,6 +666,9 @@ span {
 @media (max-width: 768px) {
     #menu-icon {
         display: block;
+    }
+    section {
+        padding-top: 12rem;
     }
 
     .navbar {
