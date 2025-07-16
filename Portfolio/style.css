@@ -27,6 +27,10 @@ body {
     color: var(--text-colour);
     cursor: url('cursor.png'), auto;
 }
+body {
+  cursor: url('cursor.png'), default;
+}
+
 
 .header {
     position: fixed;

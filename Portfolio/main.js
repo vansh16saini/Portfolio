@@ -21,6 +21,13 @@ window.addEventListener('scroll', () => {
         let offset = sec.offsetTop - 150;
         let height = sec.offsetHeight;
         let id = sec.getAttribute('id');
+        navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuIcon.classList.remove('bx-x');
+            navbar.classList.remove('active');
+            });
+        });
+
 
         if(top >= offset && top < offset + height){
             // Remove active class from all links
@@ -81,7 +88,7 @@ const observer = new IntersectionObserver((entries) => {
             entry.target.classList.remove('is-visible');
         }
     });
-}, { threshold: 0.1 }); // The animation will trigger when 10% of the element is visible
+}, { threshold: 0.25 }); // The animation will trigger when 10% of the element is visible
 
 const elements = document.querySelectorAll('.animate-on-scroll');
 elements.forEach(element => {
